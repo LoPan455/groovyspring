@@ -1,6 +1,8 @@
 package com.johander.groovyspring.controller
 
-import jdk.nashorn.internal.ir.annotations.Reference
+import com.johander.groovyspring.domain.Greeting
+import com.johander.groovyspring.service.HelloService
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/hello")
 class HelloController {
 
+    @Autowired
+    HelloService helloService
 
     @GetMapping("/")
     String hello(){
@@ -23,7 +27,8 @@ class HelloController {
     }
 
     @PostMapping("/create")
-    create(){
+    create(@RequestBody Greeting greeting){
+        helloService.create(greeting)
     }
 
     @GetMapping("read")
