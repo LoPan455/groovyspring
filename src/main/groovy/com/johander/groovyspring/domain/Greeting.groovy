@@ -5,13 +5,13 @@ import org.springframework.data.annotation.Id
 class Greeting {
 
     @Id
-    int id
+    String _id
 
     String greeting
 
-    Date created
+    Date created = new Date()
 
-    Date modified
+    Date modified = new Date()
 
     String author
 
@@ -19,8 +19,6 @@ class Greeting {
 
     Greeting(greeting, author) {
         this.greeting = greeting
-        this.created = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
-        this.modified = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
         this.author = author
     }
 
@@ -29,7 +27,7 @@ class Greeting {
     @Override
     String toString() {
         return "Greeting{" +
-                "id=" + id +
+                "id=" + _id +
                 ", greeting='" + greeting + '\'' +
                 ", created=" + created +
                 ", modified=" + modified +

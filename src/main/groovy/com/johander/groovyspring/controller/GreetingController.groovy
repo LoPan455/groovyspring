@@ -1,7 +1,7 @@
 package com.johander.groovyspring.controller
 
 import com.johander.groovyspring.domain.Greeting
-import com.johander.groovyspring.service.HelloService
+import com.johander.groovyspring.service.GreetingService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/hello")
-class HelloController {
+class GreetingController {
 
     @Autowired
-    HelloService helloService
+    GreetingService helloService
 
     @GetMapping("/")
     String hello(){

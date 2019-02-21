@@ -4,9 +4,10 @@ import com.johander.groovyspring.domain.Greeting
 import com.johander.groovyspring.repositories.GreetingRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import com.fasterxml.jackson.databind.ObjectMapper
 
 @Service
-class HelloService {
+class GreetingService {
 
     @Autowired
     GreetingRepository greetingRepository
@@ -16,7 +17,7 @@ class HelloService {
     }
 
     String create(greeting) {
-        "I'll create this greeting: ${greeting}"
+        println "I'll create this greeting: ${greeting}"
         greetingRepository.save(greeting)
     }
 
@@ -40,6 +41,5 @@ class HelloService {
     ArrayList<Greeting> readAll(){
         greetingRepository.findAll()
     }
-
 
 }
